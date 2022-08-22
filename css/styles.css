@@ -87,7 +87,8 @@ margin-right: auto;
 }
 
 .contacts-phone-mail {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     font-weight: 500;
     line-height: 1.42;
     letter-spacing: 0.02em;
@@ -135,6 +136,8 @@ margin-right: auto;
    background-repeat: no-repeat;
    padding: 200px 0;
    text-align: center;
+   margin: 0 auto;
+   max-width: 1600px;
 }
 .main-title{
     font-weight: 900;
@@ -209,11 +212,10 @@ margin-right: auto;
 .text-title{
     margin-top: 0px;
     margin-bottom: 10px;
-    font-weight: var(--bolt-font-weight);
+    font-weight: 700;
     font-size: 14px;
     text-transform: uppercase;
-
-    color: var(--primary-text-color-theme-dakr);
+    color: var(--primary-text-color-theme-dakr)
 }
 .text-title-one{
 
@@ -234,6 +236,10 @@ margin-right: auto;
    flex-basis: calc ((100% - 120px) /4);
    margin-left: 30px;
    margin-top: 30px;
+   background-color: var(--main-background-color);
+   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+   0px 2px 1px rgba(0, 0, 0, 0.2);
+   border-radius: 0px 0px 4px 4px;
 }
 .working-title{
     padding-top: 0px;
@@ -316,6 +322,8 @@ fill: var(--secondary-text-color-theme-whaite);
 background: var(--secondary-text-color-theme-light);
 }
 
+
+
 .social-list-icon{
     fill: var(--secondary-text-grey-link);
 }
@@ -347,7 +355,6 @@ background: var(--secondary-text-color-theme-light);
     width: 100%;
     height: 100%;
     border-radius: 4px;
-    border: 1px solid var(--main-color-social-links);
     justify-content: center;
     align-items: center;
     border: 1px solid var(--secondary-text-grey-link);
@@ -364,9 +371,14 @@ background: var(--secondary-text-color-theme-light);
 
 .main-icon:hover,
 .main-icon:focus {
-    color: var(--secondary-text-color-theme-light);
     border-color: var(--secondary-text-color-theme-light);
 }
+
+.main-icon:hover svg,
+.main-icon:focus svg{
+fill: var(--secondary-text-color-theme-light);
+}
+
 /* наші клієнти  */
 
 
@@ -378,7 +390,9 @@ margin-top: 20px;
 
 .footer-background {
     background: var(--primary-text-color-theme-dark-light);
-    padding: 50px 0;
+    /* padding: 50px 0; */
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 .footer-logo{
     color: var(--secondary-text-color-theme-whaite);
@@ -410,17 +424,43 @@ margin-top: 20px;
 .contacts-footer:focus {
 color: var(--accent-color);
 }
+.footer-decor {
+    width: 231px;
+    margin-right: 70px;
+  }
 
-.social-clip {
+/* ===приєднуйся===== */
+.social{
     min-width: 206px;
 }
 .footer-background .container {
+    display: flex;
     align-items: baseline;
 }
-.social-clip > p {
+.social-list-clip{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.icon-color{
+    fill: currentColor;
+}
+
+.clip-list:hover .icon-client,
+.clip-list:focus .icon-client{
+    fill: var(--secondary-text-color-theme-whaite);
+    background: var(--secondary-text-color-theme-light);  
+}
+
+.clip-list:hover,
+.clip-list:focus {
+    background-color:var(--secondary-text-color-theme-light);
+}
+
+.social > p {
     display: flex;
     margin-bottom: 20px;
-    /* font-weight: ; */
+    font-weight:700;
     text-transform: uppercase;
     color: var(--secondary-text-color-theme-whaite);
 }
@@ -430,17 +470,19 @@ color: var(--accent-color);
     width: 44px;
     height: 44px;
     border-radius: 50%;
+    
     justify-content: center;
     align-items: center;
-}
-.clip-link{
+    box-sizing: border-box;
+
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--secondary-text-color-theme-whaite);
 }
 .text-clip {
-    display: flex;
     color: var(--primary-text-color-theme-light);
 }
+
+
 /* ===ENG FOOTER===== */
 .visually-hidden {
     position: absolute;
@@ -453,19 +495,11 @@ color: var(--accent-color);
     clip: rect(0 0 0 0)  
 }
 
-.icon-clip{
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-}
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
+
   /* ======PORTFOLIO======= */
+  .photo-market > .container {
+    flex-direction: column;
+  }
        
 .modal-btn-primary {
     min-width: 73px;
@@ -497,6 +531,8 @@ p {
  .modal-btn-primary:focus {
    background-color: var(--accent-color);
    color: var(--secondary-text-color-theme-whaite);
+   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 
+   0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .photo-market{
@@ -530,6 +566,9 @@ p {
     margin-left: -30px;
     margin-top: -30px;
 }
+.poster{
+    display: block;
+  }
 
 .photo-text {
    padding-right: 24px;
@@ -540,5 +579,9 @@ p {
    border-right: 1px solid #EEEEEE;
    border-bottom: 1px solid #EEEEEE;
 }
-
+.poster:hover,
+.poster:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
 
