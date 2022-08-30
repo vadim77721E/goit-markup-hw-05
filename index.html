@@ -20,9 +20,9 @@
                 Web<span  class="logo-accent">Studio</span>
             </a>
             <ul class="nav-list-link list">
-                <li class="nav-list-item"> <a href="/" class=" link current">Студія</a></li>
-                <li class="nav-list-item"> <a href="./portfolio.html" class="link ">Портфоліо</a></li>
-                <li class="nav-list-item"> <a href="/" class=" link">Контакти</a></li>
+                <li class="nav-list-item"> <a href="/" class="current link ">Студія</a></li>
+                <li class="nav-list-item"> <a href="./portfolio.html" class="link">Портфоліо</a></li>
+                <li class="nav-list-item"> <a href="/" class=" link ">Контакти</a></li>
             </ul>
         </nav>
         <ul class="list list-ul icon-mail">
@@ -42,7 +42,7 @@
     </div>
     <section class="title-baner">
             <h1 class="main-title">Ефективні рішення для вашого бізнесу</h1>
-    <button class="modal-btn" type="button">Замовити послугу</button>  
+    <button type="button" class="modal-btn"  data-modal-open>Замовити послугу</button>  
 </div>
     </section>
 <!--Список-->
@@ -384,5 +384,15 @@
             
     </div>
 </footer>
+<div class="backdrop is-hidden" data-modal>
+    <div class="modal">
+      <button  type="button" class="modal-close-btn" data-modal-close>
+        <svg class="mobal-close-icon" width="18" height="18">
+            <use href="./images/sprite.svg#icon-close"></use>
+          </svg>
+      </button>
+    </div>
+</div>
+<script src="./js/modal.js"></script>
 </body>
 </html>
