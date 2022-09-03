@@ -11,11 +11,11 @@
 --accent-color:#188ce8;
 --secondary-text-grey-link: #AFB1B8;
 
---function-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+  --function-bezier: cubic-bezier(0.4, 0, 0.2, 1);
   --time-transition: 250ms;
 }
 
-body {
+body { 
 font-family: var(--primary-font-family);
 font-size: 14px;
 letter-spacing: 0.03em;
@@ -55,7 +55,7 @@ margin-right: auto;
 /* ======ШАПКА ПОЧАТОК======== */
 .page-header {
     padding-top: 24px;
-    padding-bottom: 24px;
+    padding-bottom: 0px;
 }
 .logo{
    font-family: var(--secondary-font-family);
@@ -74,6 +74,8 @@ margin-right: auto;
     margin-right: 50px;
 }
 .nav-list-link .link{
+   display: block;
+   padding: 32px 0px 32px;
    font-weight: 500;
    line-height: 1.42;
    letter-spacing: 0.02em;
@@ -94,7 +96,8 @@ margin-right: auto;
     position: relative;
 }
 
-.nav-list-item::after {
+
+.current::after {
     content: '';
     position: absolute;
     bottom: -1px;
@@ -109,9 +112,9 @@ margin-right: auto;
     transition: opacity var(--time-transition) var(--function-bezier);
 }
 
-.nav-list-item.current::after,
-.nav-list-item:hover::after,
-.nav-list-item:focus::after {
+.current::after,
+.current:hover::after,
+.current:focus::after {
   opacity: 1;
 }
 
@@ -171,10 +174,12 @@ margin-right: auto;
    max-width: 1600px;
 }
 .main-title{
+    margin-top: 0px;
     font-weight: 900;
     font-size: 44px;
     line-height: 1.33;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    margin-top: 0px;
     margin-bottom: 30px;
     width: 696px;
     text-align: center;
@@ -294,9 +299,29 @@ margin-right: auto;
 }
 
 .work-cart-list {
+    position: relative;
     flex-basis: calc((100% - 90px) /3);
     margin-left: 30px;
     margin-top: 30px;
+}
+.work-label{
+    position: absolute;
+    bottom: 0;
+  
+    margin: 0;
+    padding: 27px;
+    text-align: center;
+    width: 100%;
+    height: 70px;
+    
+    color: var(--secondary-text-color-theme-whaite);
+    background: rgba(47, 48, 58, 0.8);
+}
+
+.sublabel{
+    font-size: 14px;
+    font-weight:700;
+    text-transform: uppercase;
 }
 
 /* ====end */
@@ -393,16 +418,7 @@ background: var(--secondary-text-color-theme-light);
     justify-content: center;
     align-items: center;
     border: 1px solid var(--secondary-text-grey-link);
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1) ;
-}
-.main-client > .main-icon-client {
-    height: 90px;
-    width: 170px;
-}
-
-.main-client {
-    display: flex;
-    justify-content: space-between;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-icon:hover,
@@ -414,6 +430,18 @@ background: var(--secondary-text-color-theme-light);
 .main-icon:focus svg{
 fill: var(--secondary-text-color-theme-light);
 }
+
+.main-client > .main-icon-client {
+    height: 90px;
+    width: 170px;
+}
+
+.main-client {
+    display: flex;
+    justify-content: space-between;
+}
+
+
 
 /* наші клієнти  */
 
@@ -503,7 +531,7 @@ color: var(--accent-color);
 
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--secondary-text-color-theme-whaite);
-    transition: fill var(--time-transition)  var(--function-bezier) background var(--time-transition)  var(--function-bezier)
+    transition: fill var(--time-transition)  var(--function-bezier), background var(--time-transition)  var(--function-bezier),
     background-color var(--time-transition) var(--function-bezier) ;
 }
 
@@ -555,6 +583,8 @@ color: var(--accent-color);
     cursor: pointer;
     text-align: center;
     border: none;
+    transition: background-color var(--time-transition) var(--function-bezier), color var(--time-transition) var(--function-bezier),
+    box-shadow var(--time-transition) var(--function-bezier) ;
 }
 .modal-button{
     display: flex;
@@ -564,7 +594,7 @@ color: var(--accent-color);
 .header-photo {
     border-bottom: 1px solid #ECECEC;
     padding-top: 24px;
-    padding-bottom: 24px;
+    padding-bottom: 0px;
 }
 
  .modal-btn-primary:hover,
@@ -625,6 +655,42 @@ color: var(--accent-color);
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+/* ===position overlay==== */
+.thumb {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-overlay{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 150, 243, 0.9);
+    box-shadow: none;
+    transform: translateY(100%);
+    transition: var(--time-transition) var(--function-bezier);
+}
+.description{
+    padding: 63px 24px;
+    margin: 0;
+  
+    font-size: 18px;
+    line-height: 1.56;
+    color: var(--secondary-text-color-theme-whaite);
+}
+.poster:hover .portfolio-overlay,
+.poster:focus .portfolio-overlay {
+    transform: translateY(0);
+}
+
+.poster:hover,
+.poster:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  outline: transparent;
+}
+/* ===position overlay end==== */
 /* ====END PORTF */
 
 .backdrop {
@@ -666,3 +732,6 @@ color: var(--accent-color);
     padding:0;
     cursor: pointer;
 }
+
+
+<img src="./images/img1.png" alt="New Orlean vs Golden Star" width="370" height="294">
